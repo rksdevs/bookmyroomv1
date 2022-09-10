@@ -7,7 +7,6 @@ import CarRentalIcon from "@mui/icons-material/CarRental";
 import Button from "@mui/material/Button";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import PersonIcon from "@mui/icons-material/Person";
-import { DateRange } from "react-date-range";
 import { useState, useContext } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -15,6 +14,7 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../context/SearchContext";
 import { AuthContext } from "../context/AuthContext";
+import { DateRange } from "react-date-range";
 
 const HeaderMain = styled.div`
   background-color: #16213e;
@@ -185,7 +185,7 @@ const Header = ({ type }) => {
     });
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = () => {
     dispatch({
       type: "NEW_SEARCH",
       payload: { destination, dates, roomOptions },
@@ -250,9 +250,9 @@ const Header = ({ type }) => {
                   onChange={(e) => setDestination(e.target.value)}
                 />
               </HeaderSearchItem>
-              <HeaderSearchItem onClick={() => setOpenDate(!openDate)}>
+              <HeaderSearchItem>
                 <CalendarMonthIcon />
-                <HeaderContainerSpan>
+                <HeaderContainerSpan onClick={() => setOpenDate(!openDate)}>
                   {`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
                     dates[0].endDate,
                     "MM/dd/yyyy"
@@ -269,11 +269,11 @@ const Header = ({ type }) => {
                   />
                 )}
               </HeaderSearchItem>
-              <HeaderSearchItem
-                onClick={() => setOpenRoomOptions(!openRoomOptions)}
-              >
+              <HeaderSearchItem>
                 <PersonIcon />
-                <HeaderContainerSpan>
+                <HeaderContainerSpan
+                  onClick={() => setOpenRoomOptions(!openRoomOptions)}
+                >
                   {`${roomOptions.adult} adults . ${roomOptions.children} children . ${roomOptions.room} rooms`}
                 </HeaderContainerSpan>
                 {openRoomOptions && (
