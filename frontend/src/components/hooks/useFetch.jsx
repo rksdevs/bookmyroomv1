@@ -19,6 +19,7 @@ const useFetch = (url) => {
       setLoading(false);
     };
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   const reFetch = async () => {

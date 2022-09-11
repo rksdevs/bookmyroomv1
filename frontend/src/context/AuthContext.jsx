@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect, useState } from "react";
+import { createContext, useReducer, useEffect } from "react";
 
 const INITIAL_STATE = {
   user: JSON.parse(localStorage.getItem("user")) || null,
@@ -49,9 +49,7 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
   useEffect(() => {
-    // setTempUser(JSON.stringify(state.user));
     localStorage.setItem("user", JSON.stringify(state.user));
-    // console.log(tempUser);
   }, [state.user]);
 
   return (

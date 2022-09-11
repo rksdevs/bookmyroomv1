@@ -30,7 +30,7 @@ const FeaturedTitles = styled.div`
 const FeaturedTitlesHeading = styled.h1``;
 const FeaturedTitlesSubHeading = styled.h2``;
 const Featured = () => {
-  const { data, error, loading } = useFetch(
+  const { data, loading } = useFetch(
     "/hotels/countByCity?cities=Hyderabad,Mumbai,Bangalore"
   );
 

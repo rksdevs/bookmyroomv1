@@ -99,15 +99,17 @@ const ListSearchButton = styled.button`
 
 const HotelList = () => {
   const location = useLocation();
+  // eslint-disable-next-line
   const [destination, setDestination] = useState(location.state.destination);
   const [dates, setDates] = useState(location.state.dates);
   const [openDate, setOpenDate] = useState(false);
+  // eslint-disable-next-line
   const [roomOptions, setRoomOptions] = useState(location.state.roomOptions);
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
   const { user } = useContext(AuthContext);
 
-  const { data, loading, error, reFetch } = useFetch(
+  const { data, loading, reFetch } = useFetch(
     `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
   );
 
@@ -212,12 +214,3 @@ const HotelList = () => {
   );
 };
 export default HotelList;
-
-{
-  /* <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem /> */
-}
