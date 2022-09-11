@@ -39,10 +39,10 @@ export const registerUser = async (req, res) => {
 
 //Login User
 export const login = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const user = await User.findOne({ userName: req.body.username });
-    console.log(user);
+    // console.log(user);
 
     //Validation: if user exists
     if (!user) {
