@@ -56,7 +56,7 @@ const FPSpanReview = styled.span`
 `;
 
 const FeaturedProperty = () => {
-  const { data, loading } = useFetch("/hotels?featured=true&limit=4");
+  const { data, loading } = useFetch("/api/hotels?featured=true&limit=4");
   // console.log(data);
   return (
     <FPropertyContainer>

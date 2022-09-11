@@ -23,7 +23,7 @@ const Register = () => {
     dispatch({ type: "LOGIN_START" });
     // console.log(credentials);
     try {
-      const res = await axios.post("/auth/register", credentials);
+      const res = await axios.post("/api/auth/register", credentials);
       //   console.log(res.data.userName);
       dispatch({ type: "REGISTER_SUCCESS", payload: res.data.details });
       navigate("/");

@@ -24,7 +24,7 @@ const Hotel = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const { data, loading } = useFetch(`/hotels/find/${pathId}`);
+  const { data, loading } = useFetch(`/api/hotels/find/${pathId}`);
 
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
   function dayDifference(date1, date2) {

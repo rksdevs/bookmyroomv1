@@ -110,7 +110,7 @@ const HotelList = () => {
   const { user } = useContext(AuthContext);
 
   const { data, loading, reFetch } = useFetch(
-    `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
+    `/api/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
   );
 
   const handleClick = () => {

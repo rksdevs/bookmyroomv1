@@ -31,7 +31,7 @@ const FeaturedTitlesHeading = styled.h1``;
 const FeaturedTitlesSubHeading = styled.h2``;
 const Featured = () => {
   const { data, loading } = useFetch(
-    "/hotels/countByCity?cities=Hyderabad,Mumbai,Bangalore"
+    "/api/hotels/countByCity?cities=Hyderabad,Mumbai,Bangalore"
   );
 
   // console.log(data);

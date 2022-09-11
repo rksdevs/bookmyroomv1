@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import connectToDb from "./config/db.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 //importing all the routes
 import authRoute from "./routes/auth.js";
@@ -31,12 +32,13 @@ mongoose.connection.on("connected", () => {
 //to be able to send/receive json in express
 app.use(cookieParser());
 app.use(express.json());
+app.use(cors());
 
 //implementing routes middlewares
-app.use("/auth", authRoute);
-app.use("/hotels", hotelsRoute);
-app.use("/rooms", roomsRoute);
-app.use("/users", usersRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/hotels", hotelsRoute);
+app.use("/api/rooms", roomsRoute);
+app.use("/api/users", usersRoute);
 
 app.listen(8800, () => {
   connectToDb();
